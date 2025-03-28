@@ -4,7 +4,7 @@ import QtQuick.Controls 2.12
 import com.DESInstrumentClusterTeam7.speedometer 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Window 2.12
-
+import QtMultimedia 5.15
 
 
 ApplicationWindow  {
@@ -65,6 +65,29 @@ ApplicationWindow  {
     Connections{
         target: Clock
         onTimeChanged: timeDisplay.text = Clock.currentTime
+    }
+
+    Item {
+        width: 480
+        height: 270
+
+        anchors.horizontalCenter: timeDisplay.horizontalCenter
+        anchors.horizontalCenterOffset: 20
+
+        visible: gearObject.gearValue === "R" ? true : false
+
+        MediaPlayer{
+            id : camera
+            source: "gst-pipeline: libcamerasrc ! videoconvert ! autovideosink"
+            autoPlay: true
+        }
+        VideoOutput{
+            source :camera
+            width: parent.width
+            height: parent.height
+            focus : visible
+            fillMode: VideoOutput.PreserveAspectFit
+        }
     }
 
     Image {
