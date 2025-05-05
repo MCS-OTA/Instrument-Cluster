@@ -16,21 +16,12 @@ BatteryManager::BatteryManager(QObject *parent)
 }
 
 BatteryManager::~BatteryManager() {
-<<<<<<< HEAD
     /*if (i2c_fd >= 0)
         close(i2c_fd);//*/
 }
 
 bool BatteryManager::init() {
     /*i2c_fd = open(i2c_device, O_RDWR);
-=======
-    if (i2c_fd >= 0)
-        close(i2c_fd);
-}
-
-bool BatteryManager::init() {
-    i2c_fd = open(i2c_device, O_RDWR);
->>>>>>> 3be0b0c1726b6837dd9508fa8eec6094ec52759b
     if (i2c_fd < 0) {
         qWarning() << "I2C open failed";
         return false;
@@ -41,11 +32,7 @@ bool BatteryManager::init() {
         i2c_fd = -1;
         qWarning() << "I2C ioctl failed";
         return false;
-<<<<<<< HEAD
     }//*/
-=======
-    }
->>>>>>> 3be0b0c1726b6837dd9508fa8eec6094ec52759b
 
     return true;
 }
@@ -53,17 +40,10 @@ bool BatteryManager::init() {
 double BatteryManager::readVoltage() {
     uint8_t buffer[2] = {0};
 
-<<<<<<< HEAD
     /*if (read(i2c_fd, buffer, 2) != 2) {
         qWarning() << "Failed to read voltage";
         return -1;
     }//*/
-=======
-    if (read(i2c_fd, buffer, 2) != 2) {
-        qWarning() << "Failed to read voltage";
-        return -1;
-    }
->>>>>>> 3be0b0c1726b6837dd9508fa8eec6094ec52759b
 
     int raw = (buffer[0] << 8) | buffer[1];
     return raw * 0.001; // 센서 사양에 맞게 수정
@@ -75,11 +55,7 @@ int BatteryManager::batteryPercentage() const {
 
 int BatteryManager::convertToPercentage(double voltage) {
     int percentage = static_cast<int>((voltage - 9.0) / (12.6 - 9.0) * 100.0);
-<<<<<<< HEAD
     return percentage;//std::clamp(percentage, 0, 100);
-=======
-    return std::clamp(percentage, 0, 100);
->>>>>>> 3be0b0c1726b6837dd9508fa8eec6094ec52759b
 }
 
 void BatteryManager::updateBattery() {
@@ -95,11 +71,3 @@ void BatteryManager::updateBattery() {
 
     qDebug() << "Voltage:" << voltage << "->" << percentage << "%";
 }
-<<<<<<< HEAD
-=======
-
-
-int BatteryManager::batteryPercentage() const {
-    return m_batteryPercentage;
-}
->>>>>>> 3be0b0c1726b6837dd9508fa8eec6094ec52759b

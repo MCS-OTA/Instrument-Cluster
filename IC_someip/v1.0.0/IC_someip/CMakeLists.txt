@@ -35,21 +35,15 @@ find_package (CommonAPI-SomeIP 3.2.0 REQUIRED)
 find_package (vsomeip3 3.1.0 REQUIRED)
 
 #for outer communication
-<<<<<<< HEAD
 set(PRJ_SRC_GEN_PATH ../../../src-gen)
 set(PRJ_SRC_GEN_COMMONAPI_PATH ${PRJ_SRC_GEN_PATH}/core/v0/commonapi)
 set(PRJ_SRC_GEN_COMMONAPI_SOMEIP_PATH ${PRJ_SRC_GEN_PATH}/someip/v0/commonapi)
 #for inner communication
 set(PRJ_SRC_GEN_PATH-inter ../../../src-gen-inter)
-=======
-set(PRJ_SRC_GEN_PATH ../src-gen)
+set(PRJ_SRC_GEN_PATH ../../../src-gen)
 set(PRJ_SRC_GEN_COMMONAPI_PATH ${PRJ_SRC_GEN_PATH}/core/v0/commonapi)
 set(PRJ_SRC_GEN_COMMONAPI_SOMEIP_PATH ${PRJ_SRC_GEN_PATH}/someip/v0/commonapi)
-#for inner communication
-set(PRJ_SRC_GEN_PATH-inter ../src-gen-inter)
->>>>>>> 3be0b0c1726b6837dd9508fa8eec6094ec52759b
-set(PRJ_SRC_GEN_COMMONAPI_PATH-inter ${PRJ_SRC_GEN_PATH-inter}/core/v0/commonapi)
-set(PRJ_SRC_GEN_COMMONAPI_SOMEIP_PATH-inter ${PRJ_SRC_GEN_PATH-inter}/someip/v0/commonapi)
+
 # Application
 FILE(GLOB PRJ_PROXY_GEN_SRCS ${PRJ_SRC_GEN_COMMONAPI_PATH}/*Proxy.cpp)
 FILE(GLOB PRJ_STUB_GEN_SRCS ${PRJ_SRC_GEN_COMMONAPI_PATH}/*Stub*.cpp)
@@ -101,7 +95,6 @@ endif()
 
 # Include directories =
 include_directories(
-<<<<<<< HEAD
     ../../../src-gen/
     ../../../src-gen-inter/
     ../../../install_folder/include/CommonAPI-3.2
@@ -111,17 +104,6 @@ include_directories(
     ../../../src-gen/someip
     ../../../src-gen-inter/core
     ../../../src-gen-inter/someip
-=======
-    ../src-gen/
-    ../src-gen-inter/
-    ../install_folder/include/CommonAPI-3.2
-    ../install_folder/include
-    ../install_folder/lib
-    ../src-gen/core
-    ../src-gen/someip
-    ../src-gen-inter/core
-    ../src-gen-inter/someip
->>>>>>> 3be0b0c1726b6837dd9508fa8eec6094ec52759b
 )
 
 
@@ -130,15 +112,9 @@ target_compile_definitions(IC_someip
 link_directories(
     ../../install_folder/lib)
 # CommonAPI 라이브러리 찾기
-<<<<<<< HEAD
 find_library(COMMONAPI_LIB CommonAPI PATHS ../../../install_folder/lib)
 find_library(COMMONAPI_SOMEIP_LIB CommonAPI-SomeIP PATHS ../../../install_folder/lib)
 find_library(VSOMEIP_LIB vsomeip3 PATHS ../../../install_folder/lib)
-=======
-find_library(COMMONAPI_LIB CommonAPI PATHS ../install_folder/lib)
-find_library(COMMONAPI_SOMEIP_LIB CommonAPI-SomeIP PATHS ../../install_folder/lib)
-find_library(VSOMEIP_LIB vsomeip3 PATHS ../install_folder/lib)
->>>>>>> 3be0b0c1726b6837dd9508fa8eec6094ec52759b
 message("COMMONAPI_LIB: ${COMMONAPI_LIB}")
 message("COMMONAPI_SOMEIP_LIB: ${COMMONAPI_SOMEIP_LIB}")
 message("VSOMEIP_LIB: ${VSOMEIP_LIB}")
