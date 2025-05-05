@@ -22,7 +22,11 @@ public slots:
     void updateBattery();
 
 private:
+<<<<<<< HEAD
+    int i2c_fd;
+=======
     int 12c_fd;
+>>>>>>> 3be0b0c1726b6837dd9508fa8eec6094ec52759b
     const char* i2c_device = "/dev/i2c-1";
     const int i2c_address = 0x40;
 
