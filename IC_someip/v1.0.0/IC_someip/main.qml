@@ -37,7 +37,7 @@ ApplicationWindow {
     GaugeBar {
         id: leftGauge
         imgSrc: modeObject.modeValue === "#411414" ? "images/red_gauge_left.png" : "images/green_gauge_left.png"
-        ratio: speedProvider.speedValue / 200
+        ratio: speedProvider.speedValue / 200 // Receiver.speedKmh / 100
 
         anchors.left: gaugeBar.left
         anchors.leftMargin: -1

@@ -1,0 +1,1 @@
+COMMONAPI_CONFIG=commonapi4someip.ini LD_LIBRARY_PATH=./install_folder/lib:$PWD/./build-IC_someip-Desktop-Debug VSOMEIP_CONFIGURATION=./json/ic.json VSOMEIP_APPLICATION_NAME=IC_someip ./build-IC_someip-Desktop-Debug/IC_someip
